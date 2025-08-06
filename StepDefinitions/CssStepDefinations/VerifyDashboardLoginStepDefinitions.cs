@@ -33,7 +33,7 @@ namespace UDC.StepDefinitions.CssStepDefinations
             //_pageObject.loginPage.username(username);
             //ReportingManager.LogInfo("User enters password");
             //_pageObject.CSSLoginPage.Password(password);
-            //_pageObject.CSSLoginPage.Login();
+            _pageObject.loginPage.LoginButton();
             ReportingManager.LogInfo("User Logged in succesfully");
 
         }
