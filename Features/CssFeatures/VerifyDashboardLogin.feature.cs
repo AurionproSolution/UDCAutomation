@@ -21,12 +21,14 @@ namespace UDC.Features.CssFeatures
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("VerifyDashboardLogin")]
+    [NUnit.Framework.CategoryAttribute("external")]
     public partial class VerifyDashboardLoginFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
-        private static string[] featureTags = ((string[])(null));
+        private static string[] featureTags = new string[] {
+                "external"};
         
         private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/CssFeatures", "VerifyDashboardLogin", "A short summary of the feature", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
@@ -100,7 +102,7 @@ namespace UDC.Features.CssFeatures
             argumentsOfScenario.Add("Portal", portal);
             argumentsOfScenario.Add("dealer", dealer);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("User Login to Dashboard", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 6
+#line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -110,21 +112,15 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 7
- await testRunner.GivenAsync("the user is on the loginpage", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
-#line hidden
-#line 8
- await testRunner.WhenAsync(string.Format("the user enters \"{0}\" and \"{1}\" and clicks on the Login button", username, password), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 9
+#line 10
  await testRunner.ThenAsync(string.Format("the user should be successfully redirected to the select application page and the" +
                             " user selects \"{0}\"", portal), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 11
+#line 12
  await testRunner.AndAsync(string.Format("the user redirects to portal dashboard and the user select \"{0}\" from dealer\'s dr" +
                             "opdown", dealer), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 14
+#line 15
  await testRunner.ThenAsync("the user should be able to see dealer details", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
