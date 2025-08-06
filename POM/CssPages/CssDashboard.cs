@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace UDC.POM.CssPages
 {
-    public class Dashboard : BasePage
+    public class CssDashboard : BasePage
     {
-        public Dashboard(IWebDriver driver) : base(driver)
+        public CssDashboard(IWebDriver driver) : base(driver)
         {
         }
+
+
 
     }
 }
