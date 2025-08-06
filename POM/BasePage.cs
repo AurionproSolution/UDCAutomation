@@ -7,6 +7,7 @@ using System.Text;
 using SeleniumExtras.WaitHelpers;
 using System.Threading.Tasks;
 using OpenQA.Selenium.Interactions;
+using UDC.UDC.Core;
 
 namespace UDC.POM
 {
@@ -14,12 +15,12 @@ namespace UDC.POM
     {
         protected IWebDriver Driver;
         //protected AssertionsHelper assertions;
-        //protected DropdownHelper dropdown;
+        protected DropdownHelper dropdown;
 
         protected BasePage(IWebDriver driver)
         {
             Driver = driver;
-            //dropdown = new DropdownHelper(driver);
+            dropdown = new DropdownHelper(driver);
             //assertions = new AssertionsHelper(driver);
         }
         /// <summary>

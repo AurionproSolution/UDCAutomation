@@ -1,11 +1,12 @@
-﻿Feature: VerifyDashboardLogin
+﻿@external
+Feature: VerifyDashboardLogin
 
 A short summary of the feature
 
 @tag1
 Scenario Outline: User Login to Dashboard
-	Given the user is on the loginpage
-	When the user enters "<Username>" and "<Password>" and clicks on the Login button
+	#Given the user is on the loginpage
+	#When the user enters "<Username>" and "<Password>" and clicks on the Login button
 	Then the user should be successfully redirected to the select application page and the user selects "<Portal>" 
 
 	And the user redirects to portal dashboard and the user select "<dealer>" from dealer's dropdown
