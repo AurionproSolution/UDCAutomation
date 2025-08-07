@@ -7,6 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="StepDefinitions\TestDataFiles\PortalUrls.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="StepDefinitions\TestDataFiles\PortalUrls.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.105.0" />
     <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
     <PackageReference Include="ExtentReports" Version="5.0.4" />

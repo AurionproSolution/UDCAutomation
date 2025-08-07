@@ -20,7 +20,7 @@ namespace UDC.StepDefinitions.CssStepDefinations
             var driver = DriverContext.Driver;
             loginPage = new LoginPage(driver);
             cssDashboard = new CssDashboard(driver);
-            //testData = JsonUtilities.ReadJson<TestDataModel>("TestDataFiles/PortalUrls.json");
+            testData = JsonUtilities.ReadJson<TestDataModel>("TestDataFiles/PortalUrls.json");
 
         }
     }
