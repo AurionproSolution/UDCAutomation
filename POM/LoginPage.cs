@@ -19,7 +19,7 @@ namespace UDC.POM
         private IWebElement password => Find(By.XPath("//input[@id='password']"));
         private IWebElement loginButton => Find(By.XPath("//span[text() ='Login']"));
         private By selectCss => By.XPath("//div[@routerlink='/commercial']");
-        private IWebElement dashboard => Find(By.XPath("//i[@class='fa-regular fa-wallet']"));
+        private IWebElement dashboard => Find(By.XPath("//i[@class='fa-solid fa-wallet']"));
         private IWebElement userNameReLogin => Find(By.XPath("//input[@aria-label='Username']"));
         private IWebElement loginWithFisButton => Find(By.XPath("//span[text()='Login with FIS']"));
         private IWebElement fisUsername => Find(By.XPath("//mat-label[text()='Username']/following::input"));
@@ -38,14 +38,14 @@ namespace UDC.POM
             password.SendKeys(PassWord);
             ReportingManager.LogPass("Entered Password");
         }
-        public void LoginButton() 
-        { 
+        public void LoginButton()
+        {
             loginButton.Click();
             ReportingManager.LogPass("Login Sucessfully");
         }
         public void SelectCssPortal()
         {
-            IWebElement selectCssElement = WaitForElementToBeVisible(selectCss,10);
+            IWebElement selectCssElement = WaitForElementToBeVisible(selectCss, 10);
             selectCssElement.Click();
         }
         public void EnterFisUsername(string Username)
@@ -78,7 +78,6 @@ namespace UDC.POM
             //IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
             //js.ExecuteScript("arguments[0].click();", signInButton);
             ReportingManager.LogPass("Clicked on sign In button successfully");
-
         }
 
         public void EnterValidCredentials(string Username, string Password)
@@ -89,6 +88,7 @@ namespace UDC.POM
             EnterFisPassword(Password);
             OtpElementIsDisplayed(Username, Password);
             ClickOnSignInButton();
+            ClickConfirmIfApprovalPopExists();
             SetImplicitWait(10);
         }
         public void OtpElementIsDisplayed(string username, string password)
@@ -150,7 +150,7 @@ namespace UDC.POM
                     return true; // Element is no longer in the DOM
                 }
             });
-            var dashboardPoElement = wait.Until(ExpectedConditions.ElementExists(By.XPath("//i[@class='fa-regular fa-wallet']")));
+            var dashboardPoElement = wait.Until(ExpectedConditions.ElementExists(By.XPath("//i[@class='fa-solid fa-wallet']")));
             wait.Until(ExpectedConditions.ElementToBeClickable(dashboardPoElement));
             HoverOverElement(dashboard);
             ReportingManager.LogPass("Clicked on Dashboard from MenuSlidebar");
@@ -158,6 +158,25 @@ namespace UDC.POM
         public bool IsUsernameFieldDisplayed()
         {
             return userNameReLogin.Displayed;
+        }
+        public void ClickConfirmIfApprovalPopExists()
+        {
+            try
+            {
+                WebDriverWait waitForElement = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
+                var approvalText = waitForElement.Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[text()=' Approval Required ']")));
+                if (approvalText.Displayed)
+                {
+                    var confirmButtonElement = waitForElement.Until(ExpectedConditions.ElementExists(By.XPath("//span[normalize-space(text())='Confirm']")));
+                    //confirmButtonElement.Click();
+                    waitForElement.Until(ExpectedConditions.ElementToBeClickable(confirmButtonElement));
+                    IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
+                    js.ExecuteScript("arguments[0].click();", confirmButtonElement);
+                }
+            }
+            catch
+            {
+            }
         }
     }
     public static class CredentialManager

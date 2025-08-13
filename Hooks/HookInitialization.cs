@@ -137,8 +137,6 @@ namespace UDC.Hooks
             try
             {
                 ReportingManager.LogInfo("Navigating back to Dashboard...");
-                //DriverContext.Driver.Navigate().Refresh();
-                //DriverContext.Driver.Navigate().GoToUrl(_pageObjectCon.TestData.FisSandboxUrl);
                 _pageObjectCon.loginPage.ClickOnDashboard();
                 Thread.Sleep(15000);
                 ReportingManager.LogInfo("Successfully navigated to Dashboard.");

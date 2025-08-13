@@ -21,12 +21,14 @@ namespace UDC.Features.DoFeatures
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("StandardQuoteHappyPath")]
+    [NUnit.Framework.CategoryAttribute("External")]
     public partial class StandardQuoteHappyPathFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
-        private static string[] featureTags = ((string[])(null));
+        private static string[] featureTags = new string[] {
+                "External"};
         
         private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/DoFeatures", "StandardQuoteHappyPath", null, global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
@@ -82,15 +84,25 @@ namespace UDC.Features.DoFeatures
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Standard Quote Happy Path For Required Fileds")]
+        [NUnit.Framework.DescriptionAttribute("Standard Quote Happy Path")]
         [NUnit.Framework.CategoryAttribute("sanity")]
-        public async System.Threading.Tasks.Task StandardQuoteHappyPathForRequiredFileds()
+        [NUnit.Framework.TestCaseAttribute("Program1", "Product1", "BeforeContractStatus1", "AfterContractStatus1", null)]
+        public async System.Threading.Tasks.Task StandardQuoteHappyPath(string program, string product, string beforeContractStatus, string afterContractStatus, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "sanity"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Standard Quote Happy Path For Required Fileds", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 4
+            argumentsOfScenario.Add("Program", program);
+            argumentsOfScenario.Add("Product", product);
+            argumentsOfScenario.Add("BeforeContractStatus", beforeContractStatus);
+            argumentsOfScenario.Add("AfterContractStatus", afterContractStatus);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Standard Quote Happy Path", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -100,150 +112,132 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 5
-await testRunner.ThenAsync("the user is land on the Select Application page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-#line 6
- await testRunner.WhenAsync("the user clicks the Quotes & Application button", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
 #line 7
- await testRunner.ThenAsync("the user is redirected to dashboard page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync("the user redirected to dashboard Page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 8
- await testRunner.WhenAsync("the user selects the Dealer dropdown in the dashboard page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.WhenAsync("the user selects the dealer dropdown", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 9
- await testRunner.AndAsync("the user clicks the Create Quick Quote button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.AndAsync("the user Selects the Create Standard Quote dropdown", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 10
- await testRunner.AndAsync("the user selects program \"<Program>\" in the dropdown", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.AndAsync(string.Format("the user select program \"{0}\" in the dropdown", program), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 11
- await testRunner.AndAsync("the user selects product \"<Product>\" in the dropdown", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.AndAsync(string.Format("the user select product \"{0}\" in the dropdown", product), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 12
- await testRunner.GivenAsync("the user is landed in login page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.AndAsync("the user clicks the Asset type", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 13
- await testRunner.WhenAsync("the user enters \"<Username>\" and \"<Password>\" and clicks \"Login\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.AndAsync("the user clicks the Asset, Insurance & Trade In Summary button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 14
- await testRunner.AndAsync("the user selects the Dealer dropdown", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.AndAsync("the suer clicks the Asset & Insurance summary  edit button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 15
- await testRunner.AndAsync("the user clicks the create Quick Quote button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.AndAsync("the user enter all mandatory fields in the Add Asset page", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 16
- await testRunner.ThenAsync("the user redirected toQuick Quote page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.AndAsync("the user selects the Sales Person in the dropdown", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 17
- await testRunner.WhenAsync("the user selects program \"<Program>\" and product \"<Product>\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 18
- await testRunner.AndAsync("the user enter all mandatory fields in the quick quote page", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 19
- await testRunner.ThenAsync("the user redirected to Standard Quote Page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-#line 20
- await testRunner.AndAsync("the user selects the \"<Sales Person>\" in the dropdown", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 21
  await testRunner.AndAsync("the user enter the Originator reference in the field", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 22
+#line 18
  await testRunner.AndAsync("the user selects the Asset type", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 23
+#line 19
  await testRunner.AndAsync("user clicks the Asset&Insurance Summary button and clicks edit button then enter " +
                         "all mandatory fileds", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 24
+#line 20
  await testRunner.AndAsync("the user clicks the calculator button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 25
+#line 21
  await testRunner.AndAsync("the user clicks the Key disclosure and clicks the next button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 26
+#line 22
  await testRunner.AndAsync("the user is redirected to customer details page", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 27
- await testRunner.WhenAsync("the user clicks the add borrower/guarantor button", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line 23
+ await testRunner.WhenAsync("the user clicks the add borrowerAnd guarantor button", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 28
- await testRunner.AndAsync("the user selects\"<Search By>\"in the dropdown", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 24
+ await testRunner.AndAsync("the user selects \"Search By\"in the dropdown", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 29
+#line 25
  await testRunner.AndAsync("the user enters the Udc customer number in the field and clicks Search button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 30
+#line 26
  await testRunner.AndAsync("the user redirected to browser results and clicks the Add button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 31
+#line 27
  await testRunner.ThenAsync("the user navigated to Personal details page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 32
- await testRunner.WhenAsync("the user  selects \"<customer role>\" in  the dropdown", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line 28
+ await testRunner.WhenAsync("the user  selects \"customer role\" in  the dropdown", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 33
+#line 29
  await testRunner.AndAsync("the user enter all required fileds in the personal details page then clicks the N" +
                         "ext button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 35
+#line 31
  await testRunner.ThenAsync("the user is redirected to Address Details page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 36
+#line 32
  await testRunner.WhenAsync("the user enter the Search filed and select the value", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 37
+#line 33
  await testRunner.AndAsync("the user enters the Time at address fields", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 38
+#line 34
  await testRunner.AndAsync("the user clicks the Reuse for the postal Address button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 39
+#line 35
  await testRunner.AndAsync("the user enter the Suburbs fields", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 40
+#line 36
  await testRunner.ThenAsync("the user navigated to Employment Details page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 41
+#line 37
  await testRunner.WhenAsync("the user clicks the Next button", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 42
+#line 38
  await testRunner.ThenAsync("the user redirected to Financial position page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 43
+#line 39
  await testRunner.WhenAsync("the user enter the all required fields in the Financial position page then user c" +
                         "licks the Next button", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 44
+#line 40
  await testRunner.ThenAsync("the user redirected to the Reference Details page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 45
+#line 41
  await testRunner.WhenAsync("the user clicks the Check box for conformation then user clicks the Next button", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 46
+#line 42
  await testRunner.ThenAsync("the user redirected to Customer Details page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 47
+#line 43
  await testRunner.WhenAsync("the user clicks the Next button", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 48
+#line 44
  await testRunner.ThenAsync("the user retrive the generated QuoteId", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 49
- await testRunner.AndAsync("the user Verify Appllication  \"<BeforeContractStatus>\" before submit", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 45
+ await testRunner.AndAsync(string.Format("the user Verify Appllication  \"{0}\" before submit", beforeContractStatus), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 50
+#line 46
  await testRunner.WhenAsync("the user clicks the Submit button", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 51
+#line 47
  await testRunner.AndAsync("the user clicks the check boxes in the Originator Declaration page then clicks th" +
                         "e Proceed button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 52
- await testRunner.ThenAsync("the user verify Appllication Status \"<AfterContractStatus>\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line 48
+ await testRunner.ThenAsync(string.Format("the user verify Appllication Status \"{0}\"", afterContractStatus), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

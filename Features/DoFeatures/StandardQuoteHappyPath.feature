@@ -49,3 +49,4 @@ Scenario Outline: Standard Quote Happy Path
 
 	Examples: 
 	| Program | Product |  BeforeContractStatus| AfterContractStatus |
+	| Program1 | Product1 |  BeforeContractStatus1| AfterContractStatus1 |
