@@ -33,7 +33,6 @@ namespace UDC.StepDefinitions.CssStepDefinations
             selectApplicationPage = new SelectApplicationPage(driver);
             testData = JsonUtilities.ReadJson<TestDataModel>("TestDataFiles/PortalUrls.json");
             QuickQuoteTestData = JsonUtilities.ReadJson<QuickQuoteDataModel>("TestDatafiles/QuickQuote.json");
-
         }
     }
 }

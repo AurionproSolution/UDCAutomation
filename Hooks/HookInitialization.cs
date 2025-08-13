@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 using UDC.POM;
 using UDC.StepDefinitions.CssStepDefinations;
 using UDC.StepDefinitions.TestDataFiles;
@@ -37,7 +32,6 @@ namespace UDC.Hooks
             var driver = DriverContext.Driver;
             var testData = new TestDataModel();
             var _pageObjectCon = new PageObjectContainer();
-
             DriverContext.Driver.Navigate().GoToUrl(_pageObjectCon.testData.DoTestEnUrl);
             //DriverContext.Driver.Navigate().GoToUrl("https://devportalcommercial.aurionpro.com/authentication/login");
             ReportingManager.CreateTest($"Feature: {featureContext.FeatureInfo.Title}");

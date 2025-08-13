@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using OpenQA.Selenium;
+
+namespace UDC.POM.DoPages.DoBusinessPages
+{
+    public class DoBusinessPage : BasePage
+    {
+        public DoBusinessPage(IWebDriver driver) : base(driver)
+        {
+        }
+    }
+}
