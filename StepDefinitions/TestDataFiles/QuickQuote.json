@@ -1,0 +1,56 @@
+﻿{
+    "Products": [
+        "CSA-B-Assigned",
+        "CSA-B-Direct Fixed",
+        "CSA-C-Assigned",
+        "CSA-C-Direct Fixed"
+    ],
+
+    "Programs": [
+        "CSA Business - Equipment Dealer",
+        "CSA Business - MV Dealer",
+        "CSA Business - RA Dealer",
+        "Webform - CSA Business - RA Dealer",
+        "Webform - CSA Business - Direct",
+        "Webform - CSA Business - EQ Dealer",
+        "CSA Personal - Equipment Dealer",
+        "CSA Personal - MV dealer",
+        "Webform - CSA Personal - EQ Dealer",
+        "Webform - CSA Personal - MV Dealer",
+        "Webform - CSA personal RA Dealer"
+    ],
+
+    "Frequency": [
+        "Weekly",
+        "Fortnightly",
+        "Monthly",
+        "Quarterly",
+        "Annual"
+    ],
+    "CashPrice": [
+        10000.00
+    ],
+    "InterestRate": [
+        8
+    ],
+    "Deposit": [
+        10
+    ],
+    "TermsInMonths": [
+        12,
+        24,
+        36,
+        48,
+        60
+    ],
+    "CalculateFor": [
+        "Payment",
+        "Deposit",
+        "Balloon",
+        "Cash Price"
+    ],
+    "Balloon": [
+        10
+    ]
+
+}

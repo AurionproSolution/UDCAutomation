@@ -49,26 +49,24 @@ namespace UDC.StepDefinitions.CssStepDefinations
         public void ThenTheUserRedirectsToPortalDashboardAndTheUserSelectFromDealersDropdown(string p0)
         {
             ReportingManager.LogInfo("User redirects to Dashboard");
-            
-
         }
 
         [Then("the user redirects to portal dashboard")]
         public void ThenTheUserRedirectsToPortalDashboard()
         {
-            //throw new PendingStepException();
+            
         }
 
         [When("the user select {string} from dealer's dropdown")]
         public void WhenTheUserSelectFromDealersDropdown(string dealer)
         {
-            //throw new PendingStepException();
+           
         }
 
         [Then("the user should be able to see dealer details")]
         public void ThenTheUserShouldBeAbleToSeeDealerDetails()
         {
-           // throw new PendingStepException();
+          
         }
 
         

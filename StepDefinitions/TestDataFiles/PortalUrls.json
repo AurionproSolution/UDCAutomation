@@ -1,7 +1,8 @@
 ﻿{
-  "BaseUrl": "https://devportalcommercial.aurionpro.com/authentication/login",
-  "UatUrl": "https://uatportal.aurionpro.com/UANFCPortal/",
-  "QAUrl": "https://uatportal.aurionpro.com/UANFCPortal",
-  "FisSandboxUrl": "https://aurpr-ua.assetfinance.myfis.cloud/UANFCPortal/authentication",
-  "NFCSandboxUrl": "https://navistar-test.fiscloudservices.com/DANFCPortal/authentication"
+    "BaseUrl": "https://devportalcommercial.aurionpro.com/authentication/login",
+    "UatUrl": "https://uatportal.aurionpro.com/UANFCPortal/",
+    "QAUrl": "https://uatportal.aurionpro.com/UANFCPortal",
+    "DoTestEnUrl": "https://testportaludc.aurionpro.com/authentication/login",
+    "FisSandboxUrl": "https://aurpr-ua.assetfinance.myfis.cloud/UANFCPortal/authentication",
+    "NFCSandboxUrl": "https://navistar-test.fiscloudservices.com/DANFCPortal/authentication"
 }

@@ -32,8 +32,7 @@ namespace UDC.Hooks
             var driver = DriverContext.Driver;
             var testData = new TestDataModel();
             var _pageObjectCon = new PageObjectContainer();
-
-            DriverContext.Driver.Navigate().GoToUrl(_pageObjectCon.testData.UatUrl);
+            DriverContext.Driver.Navigate().GoToUrl(_pageObjectCon.testData.DoTestEnUrl);
             //DriverContext.Driver.Navigate().GoToUrl("https://devportalcommercial.aurionpro.com/authentication/login");
             ReportingManager.CreateTest($"Feature: {featureContext.FeatureInfo.Title}");
             ReportingManager.LogInfo("Login page loaded successfully.");
