@@ -21,12 +21,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\DoFeatures\" />
     <Folder Include="Features\RssFeatures\" />
-    <Folder Include="POM\DOPages\" />
+    <Folder Include="POM\DOPages\NewFolder\" />
     <Folder Include="POM\RSSPages\" />
-    <Folder Include="StepDefinitions\DoStepDefinations\" />
     <Folder Include="StepDefinitions\RssStepDefinations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="StepDefinitions\TestDataFiles\PortalUrls.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="StepDefinitions\TestDataFiles\QuickQuote.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="StepDefinitions\TestDataFiles\QuickQuote1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

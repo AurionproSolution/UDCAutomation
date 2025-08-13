@@ -16,7 +16,6 @@ namespace UDC.POM
         protected IWebDriver Driver;
         //protected AssertionsHelper assertions;
         protected DropdownHelper dropdown;
-
         protected BasePage(IWebDriver driver)
         {
             Driver = driver;
@@ -49,7 +48,6 @@ namespace UDC.POM
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(timeoutInSeconds));
             return wait.Until(ExpectedConditions.ElementIsVisible(locator));
         }
-
         // Method to wait for an element to be clickable
         public IWebElement WaitForElementToBeClickable(By locator, int timeoutInSeconds)
         {
@@ -83,7 +81,7 @@ namespace UDC.POM
         /// <summary>
         /// Clicks an element using JavaScript when normal click fails.
         /// </summary>
-        protected void ClickElementUsingJavaScript(IWebElement element)
+        public void ClickElementUsingJavaScript(IWebElement element)
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
             js.ExecuteScript("arguments[0].click();", element);
@@ -92,13 +90,8 @@ namespace UDC.POM
         {
             try
             {
-                // Wait for element to be visible and enabled before scrolling
-                // Wait.Until(ExpectedConditions.ElementToBeClickable(element));
-
                 // Check if element is already in the viewport
-                bool isElementInView = (bool)((IJavaScriptExecutor)Driver).ExecuteScript(
-                    "var rect = arguments[0].getBoundingClientRect();" +
-                    "return (rect.top >= 0 && rect.bottom <= window.innerHeight);", element);
+                bool isElementInView = (bool)((IJavaScriptExecutor)Driver).ExecuteScript( "var rect = arguments[0].getBoundingClientRect();" + "return (rect.top >= 0 && rect.bottom <= window.innerHeight);", element);
 
                 // Scroll only if element is not in view
                 if (!isElementInView)
@@ -110,7 +103,6 @@ namespace UDC.POM
                     // Small delay to let scrolling complete
                     Thread.Sleep(500);
                 }
-
                 // Move mouse to element
                 Actions actions = new Actions(Driver);
                 actions.MoveToElement(element).Perform();
@@ -121,7 +113,6 @@ namespace UDC.POM
                 throw; // Rethrow exception for better debugging
             }
         }
-
         public void HoverOverElement(IWebElement element)
         {
             Actions actions = new Actions(Driver);
@@ -169,11 +160,31 @@ namespace UDC.POM
             }
             throw new Exception("Element is still stale after multiple retries.");
         }
+        //public void WaitTillTheLoadSpinnerDisappears(int timeoutInSeconds = 5)
+        //{
+        //    // Wait for spinner to disappear
+        //    WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(timeoutInSeconds));
+        //    wait.Until(drv =>
+        //    {
+        //        try
+        //        {
+        //            return !drv.FindElement(By.CssSelector(".p-progressspinner")).Displayed;
+        //        }
+        //        catch (NoSuchElementException)
+        //        {
+        //            return true; // Element is no longer in the DOM
+        //        }
+        //    });
+        //}
         public void WaitTillTheLoadSpinnerDisappears(int timeoutInSeconds = 5)
         {
-            // Wait for spinner to disappear
-            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(timeoutInSeconds));
-            wait.Until(drv =>
+            DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver)
+            {
+                Timeout = TimeSpan.FromSeconds(timeoutInSeconds),
+                PollingInterval = TimeSpan.FromMilliseconds(100) // You can adjust this if needed
+            };
+            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+            fluentWait.Until(drv =>
             {
                 try
                 {
@@ -181,7 +192,7 @@ namespace UDC.POM
                 }
                 catch (NoSuchElementException)
                 {
-                    return true; // Element is no longer in the DOM
+                    return true; // Spinner not present in DOM
                 }
             });
         }
@@ -209,19 +220,25 @@ namespace UDC.POM
                 }
             });
             var Element = wait.Until(ExpectedConditions.ElementExists(locator));
-            //wait.Until(ExpectedConditions.ElementToBeClickable(Element));
             SetImplicitWait(15);
-            //WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
-            //wait.Until(drv =>
-            //{
-            //    var spinners = drv.FindElements(By.CssSelector(".p-progressspinner"));
-            //    return spinners.Count == 0 || !spinners[0].Displayed;
-            //});
         }
-
+        public void ScrollToElement(IWebElement element)
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
+            js.ExecuteScript("arguments[0].click();", element);
+        }
+        public void ScrollIntoView(IWebElement element)
+        {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
+            js.ExecuteScript("window.scrollTo(0, 0);");
+            Thread.Sleep(500);
+            //element.Click();
+        }
+        public void DoubleClick(IWebElement element)
+        {
+            Actions actions = new  Actions(Driver);
+            actions.DoubleClick(element).Perform();
+        }
         protected IWebElement Find(By locator) => Driver.FindElement(locator);
-
-      
-
     }
 }
