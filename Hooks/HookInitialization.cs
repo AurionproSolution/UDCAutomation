@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 using UDC.POM;
 using UDC.StepDefinitions.CssStepDefinations;
 using UDC.StepDefinitions.TestDataFiles;
@@ -37,9 +32,8 @@ namespace UDC.Hooks
             var driver = DriverContext.Driver;
             var testData = new TestDataModel();
             var _pageObjectCon = new PageObjectContainer();
-
-            //DriverContext.Driver.Navigate().GoToUrl(_pageObjectCon.testData.BaseUrl);
-            DriverContext.Driver.Navigate().GoToUrl("https://devportalcommercial.aurionpro.com/authentication/login");
+            DriverContext.Driver.Navigate().GoToUrl(_pageObjectCon.testData.DoTestEnUrl);
+            //DriverContext.Driver.Navigate().GoToUrl("https://devportalcommercial.aurionpro.com/authentication/login");
             ReportingManager.CreateTest($"Feature: {featureContext.FeatureInfo.Title}");
             ReportingManager.LogInfo("Login page loaded successfully.");
 
@@ -143,8 +137,6 @@ namespace UDC.Hooks
             try
             {
                 ReportingManager.LogInfo("Navigating back to Dashboard...");
-                //DriverContext.Driver.Navigate().Refresh();
-                //DriverContext.Driver.Navigate().GoToUrl(_pageObjectCon.TestData.FisSandboxUrl);
                 _pageObjectCon.loginPage.ClickOnDashboard();
                 Thread.Sleep(15000);
                 ReportingManager.LogInfo("Successfully navigated to Dashboard.");

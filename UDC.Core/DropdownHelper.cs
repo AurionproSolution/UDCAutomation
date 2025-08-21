@@ -21,6 +21,7 @@ namespace UDC.UDC.Core
             // Ensure dropdown trigger is clickable before clicking
             dropdownTrigger.Click();
             // Wait for dropdown options to be visible
+
             wait.Until(ExpectedConditions.ElementIsVisible(optionsLocator));
 
             var options = Driver.FindElements(optionsLocator);
