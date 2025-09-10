@@ -11,10 +11,10 @@ namespace UDC.StepDefinitions.DoStepDefinations
     [Binding]
     public class ValidateAddComparisionQuoteDataShouldMatchFromQuickQuoteStepDefinitions
     {
-        private readonly PageObjectContainer _pageObjects;
+        private readonly DO_PageObjectContainer _pageObjects;
         private Dictionary<string, string> quickQuoteValues;
         private Dictionary<string, string> comparisonValue;
-        public ValidateAddComparisionQuoteDataShouldMatchFromQuickQuoteStepDefinitions(PageObjectContainer pageObjects)
+        public ValidateAddComparisionQuoteDataShouldMatchFromQuickQuoteStepDefinitions(DO_PageObjectContainer pageObjects)
         {
             _pageObjects = pageObjects;
         }
@@ -117,6 +117,7 @@ namespace UDC.StepDefinitions.DoStepDefinations
         public void WhenTheUserEntersInterestRateInTheFiled()
         {
             _pageObjects.QuickQuotePage.EnterInterestRate("7");
+            
         }
 
         [When("the user selects the {string} in the term dropdown")]
@@ -147,6 +148,7 @@ namespace UDC.StepDefinitions.DoStepDefinations
         {
             _pageObjects.QuickQuotePage.ClickOnCalculateButton();
             quickQuoteValues = _pageObjects.QuickQuotePage.GetFieldValues();
+            _pageObjects.QuickQuotePage.ClickOnCreateQuoteButton();
         }
 
         [Then("after the hit calculation button then AddcomparisonTwo is enabled")]

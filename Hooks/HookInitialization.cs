@@ -31,7 +31,7 @@ namespace UDC.Hooks
             DriverContext.InitDriver();
             var driver = DriverContext.Driver;
             var testData = new TestDataModel();
-            var _pageObjectCon = new PageObjectContainer();
+            var _pageObjectCon = new DO_PageObjectContainer();
             DriverContext.Driver.Navigate().GoToUrl(_pageObjectCon.testData.DoTestEnUrl);
             //DriverContext.Driver.Navigate().GoToUrl("https://devportalcommercial.aurionpro.com/authentication/login");
             ReportingManager.CreateTest($"Feature: {featureContext.FeatureInfo.Title}");
@@ -120,7 +120,7 @@ namespace UDC.Hooks
         [AfterScenario]
         public void TearDownDriver()
         {
-            var _pageObjectCon = new PageObjectContainer();
+            var _pageObjectCon = new DO_PageObjectContainer();
             string scenarioName = _scenarioContext.ContainsKey("CustomScenarioName")
                 ? _scenarioContext["CustomScenarioName"].ToString()
                 : _scenarioContext.ScenarioInfo.Title;

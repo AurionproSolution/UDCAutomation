@@ -12,9 +12,9 @@ namespace UDC.StepDefinitions.CssStepDefinations
     [Binding]
     public class VerifyDashboardLoginStepDefinitions
     {
-        public readonly PageObjectContainer _pageObject;
+        public readonly DO_PageObjectContainer _pageObject;
         public LoginPage loginPage = new LoginPage(DriverContext.Driver);
-        public VerifyDashboardLoginStepDefinitions(PageObjectContainer pageObject)
+        public VerifyDashboardLoginStepDefinitions(DO_PageObjectContainer pageObject)
         {
             _pageObject = pageObject;
         }

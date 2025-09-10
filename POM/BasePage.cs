@@ -1,12 +1,13 @@
-﻿using OpenQA.Selenium;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using SeleniumExtras.WaitHelpers;
 using System.Threading.Tasks;
-using OpenQA.Selenium.Interactions;
 using UDC.UDC.Core;
 
 namespace UDC.POM
@@ -42,18 +43,21 @@ namespace UDC.POM
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(timeoutSeconds));
             return wait.Until(condition);
         }
+
         // Method to wait for an element to be visible
         public IWebElement WaitForElementToBeVisible(By locator, int timeoutInSeconds)
         {
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(timeoutInSeconds));
             return wait.Until(ExpectedConditions.ElementIsVisible(locator));
         }
+
         // Method to wait for an element to be clickable
         public IWebElement WaitForElementToBeClickable(By locator, int timeoutInSeconds)
         {
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(timeoutInSeconds));
             return wait.Until(ExpectedConditions.ElementToBeClickable(locator));
         }
+
         public void WaitForPageToLoad(IWebElement element, int timeoutInSeconds = 10)
         {
             WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(timeoutInSeconds));

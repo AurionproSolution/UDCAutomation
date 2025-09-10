@@ -10,17 +10,16 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
+using Reqnroll;
 namespace UDC.Features.DoFeatures
 {
-    using Reqnroll;
-    using System;
-    using System.Linq;
     
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "2.0.0.0")]
-    [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "2.0.0.0")]
+    [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("ValidateAddComparisionQuoteDataShouldMatchFromQuickQuote")]
+    [NUnit.Framework.FixtureLifeCycleAttribute(NUnit.Framework.LifeCycle.InstancePerTestCase)]
     [NUnit.Framework.CategoryAttribute("External")]
     public partial class ValidateAddComparisionQuoteDataShouldMatchFromQuickQuoteFeature
     {
@@ -30,41 +29,63 @@ namespace UDC.Features.DoFeatures
         private static string[] featureTags = new string[] {
                 "External"};
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/DoFeatures", "ValidateAddComparisionQuoteDataShouldMatchFromQuickQuote", null, global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features/DoFeatures", "ValidateAddComparisionQuoteDataShouldMatchFromQuickQuote", null, global::Reqnroll.ProgrammingLanguage.CSharp, featureTags);
         
 #line 1 "ValidateAddComparisionQuoteDataShouldMatchFromQuickQuote.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
-        public static async System.Threading.Tasks.Task FeatureSetupAsync()
+        public static async global::System.Threading.Tasks.Task FeatureSetupAsync()
         {
         }
         
         [NUnit.Framework.OneTimeTearDownAttribute()]
-        public static async System.Threading.Tasks.Task FeatureTearDownAsync()
+        public static async global::System.Threading.Tasks.Task FeatureTearDownAsync()
         {
         }
         
         [NUnit.Framework.SetUpAttribute()]
-        public async System.Threading.Tasks.Task TestInitializeAsync()
+        public async global::System.Threading.Tasks.Task TestInitializeAsync()
         {
             testRunner = global::Reqnroll.TestRunnerManager.GetTestRunnerForAssembly(featureHint: featureInfo);
-            if (((testRunner.FeatureContext != null) 
-                        && (testRunner.FeatureContext.FeatureInfo.Equals(featureInfo) == false)))
+            try
             {
-                await testRunner.OnFeatureEndAsync();
+                if (((testRunner.FeatureContext != null) 
+                            && (testRunner.FeatureContext.FeatureInfo.Equals(featureInfo) == false)))
+                {
+                    await testRunner.OnFeatureEndAsync();
+                }
             }
-            if ((testRunner.FeatureContext == null))
+            finally
             {
-                await testRunner.OnFeatureStartAsync(featureInfo);
+                if (((testRunner.FeatureContext != null) 
+                            && testRunner.FeatureContext.BeforeFeatureHookFailed))
+                {
+                    throw new global::Reqnroll.ReqnrollException("Scenario skipped because of previous before feature hook error");
+                }
+                if ((testRunner.FeatureContext == null))
+                {
+                    await testRunner.OnFeatureStartAsync(featureInfo);
+                }
             }
         }
         
         [NUnit.Framework.TearDownAttribute()]
-        public async System.Threading.Tasks.Task TestTearDownAsync()
+        public async global::System.Threading.Tasks.Task TestTearDownAsync()
         {
-            await testRunner.OnScenarioEndAsync();
-            global::Reqnroll.TestRunnerManager.ReleaseTestRunner(testRunner);
+            if ((testRunner == null))
+            {
+                return;
+            }
+            try
+            {
+                await testRunner.OnScenarioEndAsync();
+            }
+            finally
+            {
+                global::Reqnroll.TestRunnerManager.ReleaseTestRunner(testRunner);
+                testRunner = null;
+            }
         }
         
         public void ScenarioInitialize(global::Reqnroll.ScenarioInfo scenarioInfo)
@@ -73,12 +94,12 @@ namespace UDC.Features.DoFeatures
             testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<NUnit.Framework.TestContext>(NUnit.Framework.TestContext.CurrentContext);
         }
         
-        public async System.Threading.Tasks.Task ScenarioStartAsync()
+        public async global::System.Threading.Tasks.Task ScenarioStartAsync()
         {
             await testRunner.OnScenarioStartAsync();
         }
         
-        public async System.Threading.Tasks.Task ScenarioCleanupAsync()
+        public async global::System.Threading.Tasks.Task ScenarioCleanupAsync()
         {
             await testRunner.CollectScenarioErrorsAsync();
         }
@@ -95,7 +116,7 @@ namespace UDC.Features.DoFeatures
         [NUnit.Framework.TestCaseAttribute("deepak.paramanick", "Happywork@1212", "CSA-B-Direct Fixed", "Webform - CSA Business - EQ Dealer", null)]
         [NUnit.Framework.TestCaseAttribute("deepak.paramanick", "Happywork@1212", "CSA-C-Direct Fixed", "Webform - CSA Personal - EQ Dealer", null)]
         [NUnit.Framework.TestCaseAttribute("deepak.paramanick", "Happywork@1212", "CSA-C-Direct Fixed", "Webform - CSA Personal - MV Dealer", null)]
-        public async System.Threading.Tasks.Task ValidateAddComparisionQuoteDataShouldMatchFromQuickQuote(string username, string password, string product, string program, string[] exampleTags)
+        public async global::System.Threading.Tasks.Task ValidateAddComparisionQuoteDataShouldMatchFromQuickQuote(string username, string password, string product, string program, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "sanity"};
@@ -104,7 +125,7 @@ namespace UDC.Features.DoFeatures
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             string[] tagsOfScenario = @__tags;
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Username", username);
             argumentsOfScenario.Add("Password", password);
             argumentsOfScenario.Add("Product", product);
@@ -197,7 +218,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Validate the Calculate For Dropdown")]
         [NUnit.Framework.CategoryAttribute("sanity")]
         [NUnit.Framework.TestCaseAttribute("deepak.paramanick", "Happywork@1212", "CSA-B-Assigned", "CSA Business - Equipment Dealer", null)]
-        public async System.Threading.Tasks.Task ValidateTheCalculateForDropdown(string username, string password, string product, string program, string[] exampleTags)
+        public async global::System.Threading.Tasks.Task ValidateTheCalculateForDropdown(string username, string password, string product, string program, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "sanity"};
@@ -206,7 +227,7 @@ this.ScenarioInitialize(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             string[] tagsOfScenario = @__tags;
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Username", username);
             argumentsOfScenario.Add("Password", password);
             argumentsOfScenario.Add("Product", product);

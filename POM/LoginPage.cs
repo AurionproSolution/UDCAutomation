@@ -186,7 +186,7 @@ namespace UDC.POM
             return userType.ToLower() switch
             {
                 "internal" => ("ANVARRAJU.MARRI", "Aurionpro@2211"),
-                "external" => ("Anvarraju.marri1", "Aurionpro@2211"),
+                "external" => ("Nikhil.Mokde1", "Testing@2211"),
                 _ => throw new ArgumentException("Invalid user type provided.")
             };
         }

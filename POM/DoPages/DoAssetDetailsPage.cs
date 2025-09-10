@@ -22,7 +22,7 @@ namespace UDC.POM.DoPages
         private IWebElement cancelButton => Find(By.XPath("//timesicon[@class='p-element p-icon-wrapper ng-tns-c4033847114-34 ng-star-inserted']//*[name()='svg']"));
         private IWebElement KeyInfoDisCancelButton => Find(By.XPath("//timesicon[@class='p-element p-icon-wrapper ng-tns-c4033847114-56 ng-star-inserted']//*[name()='svg']"));
         private IWebElement KeyInformationDisclosureButton => Find(By.XPath("//label[normalize-space()='Key Information Disclosure >']"));
-
+        private IWebElement NextButton => Find(By.XPath("//span[contains(text(),'Next')]"));
         By optionsLocator = By.XPath("//p-dropdownitem[@class='p-element ng-star-inserted']");
 
         public void SelectProduct(string value)
@@ -58,6 +58,7 @@ namespace UDC.POM.DoPages
         }
         public void ClickOnCalculateButton()
         {
+            MoveToElement(clickOnCalculateBtn);
             clickOnCalculateBtn.Click();
         }
         public void EnterCashPriceOfAsset(string value)
@@ -73,7 +74,6 @@ namespace UDC.POM.DoPages
         public void ClickOnAssetInsTradeInHLink()
         {
             ScrollAndClickElement(assetInsTradeInHLink);
-            assetInsTradeInHLink.Click();
             ReportingManager.LogPass("Clicked on Asset, Insurance & Trade-in Summary link");
         }
         public void ClickOnCancelButton()
@@ -91,5 +91,14 @@ namespace UDC.POM.DoPages
             KeyInfoDisCancelButton.Click();
             ReportingManager.LogPass("Clicked on Key Information Disclosure Cancel Button");
         }
+
+        public void ClickOnNextButton()
+        {
+            MoveToElement(NextButton);
+            NextButton.Click();
+            WaitTillTheLoadSpinnerDisappears();
+            ReportingManager.LogPass("Clicked on Next Button");
+        }
+
     }
 }

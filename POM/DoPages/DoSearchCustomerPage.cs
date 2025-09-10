@@ -1,15 +1,17 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OpenQA.Selenium;
+using UDC.StepDefinitions.CssStepDefinations;
 using UDC.UDC.Core;
 
 namespace UDC.POM.DoPages
 {
     public class DoSearchCustomerPage : BasePage
     {
+        private readonly DO_PageObjectContainer _pageObjects;
         public DoSearchCustomerPage(IWebDriver driver) : base(driver)
         {
         }
@@ -18,6 +20,8 @@ namespace UDC.POM.DoPages
         private IWebElement enterTrust => Find(By.XPath("//label[normalize-space()='Trust']"));
         private IWebElement selectSearchBy => Find(By.XPath("(//div[@class='p-dropdown p-component p-inputwrapper']//span[@role='combobox'])[1]"));
         private IWebElement searchButton => Find(By.XPath("//p-button[@class='p-element pointer text-semi-bold ng-star-inserted']//button[@type='button']"));
+        private IWebElement trustNameTextBox => Find(By.XPath("//label[contains(text(),'Trust Name')]//following::input"));
+        private IWebElement linkAddNewCustomer => Find(By.XPath("//span[contains(text(),'Add New Customer')]"));
         By optionsLocator = By.XPath("//p-dropdownitem[@class='p-element ng-star-inserted']");
         public void ClickOnBusinessRadioButton()
         {
@@ -43,6 +47,20 @@ namespace UDC.POM.DoPages
         {
             searchButton.Click();
             ReportingManager.LogPass("Clicked on Search Button");
+        }
+
+        public void EnterTrustNameInTrustNameField()
+        {
+            trustNameTextBox.SendKeys("T");
+            ReportingManager.LogPass("Enter Trust Name In Trust Name Field");
+        }
+
+        public void ClickOnAddNewCustomerLink()
+        {
+            MoveToElement(linkAddNewCustomer);
+            linkAddNewCustomer.Click();
+            ReportingManager.LogPass("Click On Add New Customer Link");
+            WaitTillTheLoadSpinnerDisappears();
         }
     }
 }
