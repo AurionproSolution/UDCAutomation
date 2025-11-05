@@ -8,16 +8,19 @@ using OpenQA.Selenium;
 
 namespace UDC.POM
 {
-    public class SelectApplicationPage:BasePage
+    public class SelectApplicationPage : BasePage
     {
         public SelectApplicationPage(IWebDriver driver) : base(driver) { }
         private IWebElement quotesAndApplicationButton => Find(By.XPath("//div[text()=' Quotes & Applications ']"));
         public void ClickOnQuoteAndApplicationButton()
         {
             Thread.Sleep(8000);
-            WaitForPageToLoad(quotesAndApplicationButton);
-            ClickElementUsingJavaScript(quotesAndApplicationButton);
-            //quotesAndApplicationButton.Click();
+            var elements = Driver.FindElements(By.XPath("//div[text()=' Quotes & Applications ']"));
+            if (elements.Count > 0 && elements[0].Displayed)
+            {
+                WaitForPageToLoad(quotesAndApplicationButton);
+                ClickElementUsingJavaScript(quotesAndApplicationButton);
+            }
         }
     }
 }

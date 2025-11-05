@@ -1,0 +1,17 @@
+{
+  "TrustName": "T",
+  "RegisterNumber": "12345678",
+  "TrustinYears": "5",
+  "TrustinMonth": "5",
+  "BusinessContactDetails": "+31",
+  "BusinessContactDetails1": "1111",
+  "Phone": "9876543210",
+  "Email": "textuser@yopmail.com",
+  "PhysicalAddress": "Auckland",
+  "TimeAtAddressInYears": "5",
+  "TimeAtAddressInMonths": "5",
+  "FloorNumber": "5",
+  "PostalAddress": "Auckland",
+  "PostalAddressFloorNumber": "25",
+  "RegisterAddress": "Auckland"
+}

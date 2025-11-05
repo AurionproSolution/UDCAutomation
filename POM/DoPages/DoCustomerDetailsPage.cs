@@ -26,5 +26,21 @@ namespace UDC.POM.DoPages
             nextButton.Click();
             ReportingManager.LogPass("Clicked on Next Button");
         }
+
+        public void VerifyBorrowersandGuarantors()
+        {
+            bool labelAddBorrowerOrGuarantors = addBorrowerOrGuarantors.Displayed;
+
+            if(labelAddBorrowerOrGuarantors)
+            {
+                ReportingManager.LogPass("User is redirected to customer details page");
+                ReportingManager.AddScreenshotToReport("User is redirected to customer details page");
+            }
+            else
+            {
+                ReportingManager.LogFail("User is not redirected to customer details page");
+                ReportingManager.AddScreenshotToReport("User is not redirected to customer details page");
+            }
+        }
     }
 }

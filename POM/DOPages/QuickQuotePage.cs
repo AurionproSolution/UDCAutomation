@@ -58,7 +58,7 @@ namespace UDC.POM.DOPages
         private IWebElement calculateForDropdown => Find(By.XPath("(//label[text()='Calculate For']/following-sibling::div/descendant::span)[2]"));
         private IWebElement calculateForDropdownQuoteThree => Find(By.XPath("(//label[text()='Calculate For']/following-sibling::div/descendant::span)[3]"));
         private IWebElement thirdQuoteCalculateButton => Find(By.XPath("//label[text()=' Quick Quote 3']/following::span[text()='Calculate']"));
-
+        private IWebElement buttonCreateQuote => Find(By.XPath("//span[contains(text(),'Create Quote')]"));
 
         By optionsLocator = By.XPath("//p-dropdownitem[@class='p-element ng-star-inserted']");
         public void SelectProgramDropDown(string value)
@@ -118,6 +118,7 @@ namespace UDC.POM.DOPages
             WaitTillTheLoadSpinnerDisappears(15);
             SetImplicitWait(10);
             ReportingManager.AddScreenshotToReport("Quick Quote screenshot captured successfully.");
+            MoveToElement(buttonCreateQuote);
         }
         public void ClickOnSecondQuoteCalculateButton()
         {
@@ -127,6 +128,7 @@ namespace UDC.POM.DOPages
         }
         public void SelectTermDropdown(string value)
         {
+            MoveToElement(frequencyDropdown);            
         }
         public void SelectFrequencyDropdown(string value)
         {
@@ -328,6 +330,12 @@ namespace UDC.POM.DOPages
             {
                 ReportingManager.LogPass("Cash Price Field is Read-only (not editable)");
             }
+        }
+
+        public void ClickOnCreateQuoteButton()
+        {
+            buttonCreateQuote.Click();
+            WaitTillTheLoadSpinnerDisappears();
         }
     }
 }
