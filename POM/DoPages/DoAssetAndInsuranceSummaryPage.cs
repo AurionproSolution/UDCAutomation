@@ -27,7 +27,7 @@ namespace UDC.POM.DoPages
         private IWebElement policyNumberTextBox=> Find(By.XPath("//label[contains(text(),'Policy Number')]//following::input")); 
         private IWebElement submitButton => Find(By.XPath("//span[contains(text(),'Submit')]"));
         private IWebElement assetCloseButton => Find(By.XPath("//span[contains(text(),'Asset & Insurance Summary')]//following::button"));
-        private readonly DO_PageObjectContainer _pageObjects = new DO_PageObjectContainer();
+       // private readonly DO_PageObjectContainer _pageObjects = new DO_PageObjectContainer();
         public void ClickAssetEditButton()
         {
             assetEditButton.Click();
@@ -37,13 +37,13 @@ namespace UDC.POM.DoPages
 
         public void EnterAssetDetails()
         {
-            EntreMakeText();
-            EntreModelText();
-            EntreVariantText();
-            EntreTexRegoNo();
-            EntreVINNumberText();
-            EntreSerialChassisNoText();
-            EntrePolicyNumberText();
+            EntreMakeText("Tata Motors");
+            EntreModelText("Altroz");
+            EntreVariantText("XZ");
+            EntreTexRegoNo("123456");
+            EntreVINNumberText("12345678912345678");
+            EntreSerialChassisNoText("123456");
+            EntrePolicyNumberText("9876543");
             submitButton.Click();
         }
 
@@ -59,46 +59,46 @@ namespace UDC.POM.DoPages
             assetCloseButton.Click();
         }
 
-        public void EntreMakeText()
+        public void EntreMakeText(string value)
         {
-            makeTextbox.SendKeys(_pageObjects.AssetDetailsTestData.Make);
-            ReportingManager.LogInfo("Entre Make Text : " + _pageObjects.AssetDetailsTestData.Make);
+            makeTextbox.SendKeys(value);
+            ReportingManager.LogInfo("Entre Make Text : "+ value);
         }
 
-        public void EntreModelText()
+        public void EntreModelText(string value)
         {
-            modelTextbox.SendKeys(_pageObjects.AssetDetailsTestData.Model);
-            ReportingManager.LogInfo("Entre Model Text : " + _pageObjects.AssetDetailsTestData.Model);
+            modelTextbox.SendKeys(value);
+            ReportingManager.LogInfo("Entre Model Text : "+ value);
         }
 
-        public void EntreVariantText()
+        public void EntreVariantText(string value)
         {
-            variantTextbox.SendKeys(_pageObjects.AssetDetailsTestData.Variant);
-            ReportingManager.LogInfo("Entre  Variant Text : " + _pageObjects.AssetDetailsTestData.Variant);
+            variantTextbox.SendKeys(value);
+            ReportingManager.LogInfo("Entre  Variant Text : " + value);
         }
 
-        public void EntreTexRegoNo()
+        public void EntreTexRegoNo(string value)
         {
-            regoNoTextbox.SendKeys(_pageObjects.AssetDetailsTestData.RegoNo);
-            ReportingManager.LogInfo("Entre Rego No Text : " + _pageObjects.AssetDetailsTestData.RegoNo);
+            regoNoTextbox.SendKeys(value);
+            ReportingManager.LogInfo("Entre Rego No Text : " + value);
         }
 
-        public void EntreVINNumberText()
+        public void EntreVINNumberText(string value)
         {
-            vinTextbox.SendKeys(_pageObjects.AssetDetailsTestData.VINNumber);
-            ReportingManager.LogInfo("Entre VINNumber Text : " + _pageObjects.AssetDetailsTestData.VINNumber);
+            vinTextbox.SendKeys(value);
+            ReportingManager.LogInfo("Entre VINNumber Text : " + value);
         }
 
-        public void EntreSerialChassisNoText()
+        public void EntreSerialChassisNoText(string value)
         {
-            serialchasisNoTextbox.SendKeys(_pageObjects.AssetDetailsTestData.SerialChassisNo);
-            ReportingManager.LogInfo("Entre SerialChassisNo Text : " + _pageObjects.AssetDetailsTestData.SerialChassisNo);
+            serialchasisNoTextbox.SendKeys(value);
+            ReportingManager.LogInfo("Entre SerialChassisNo Text : " + value);
         }
 
-        public void EntrePolicyNumberText()
+        public void EntrePolicyNumberText(string value)
         {
-            policyNumberTextBox.SendKeys(_pageObjects.AssetDetailsTestData.PolicyNumber);
-            ReportingManager.LogInfo("Entre PolicyNumber Text : " + _pageObjects.AssetDetailsTestData.PolicyNumber);
+            policyNumberTextBox.SendKeys(value);
+            ReportingManager.LogInfo("Entre PolicyNumber Text : " + value);
         }
 
     }
